@@ -481,6 +481,12 @@ const getPaymasterRpc = (): string => {
     return `${zeroDevPaymasterRpcHost}/${zeroDevProjectId}?paymasterProvider=${DEFAULT_PROVIDER}`
 }
 
+const getKernelAddress = <entryPoint extends EntryPoint>(
+    client: KernelAccountClient<entryPoint, Transport, Chain, KernelSmartAccount<entryPoint>>
+) => {
+    return client?.account?.address
+}
+
 export const getKernelAccountClient = async <entryPoint extends EntryPoint>({
     account,
     middleware
@@ -490,6 +496,15 @@ export const getKernelAccountClient = async <entryPoint extends EntryPoint>({
     const chain = getTestingChain()
     const resolvedAccount =
         account ?? (await getSignerToEcdsaKernelAccount<entryPoint>())
+
+    const kernelAccountClient = createKernelAccountClient({
+        account: resolvedAccount,
+        chain,
+        bundlerTransport: http(getBundlerRpc()),
+        middleware,
+        entryPoint: getEntryPoint() as entryPoint
+    });
+    getKernelAddress(kernelAccountClient);
 
     return createKernelAccountClient({
         account: resolvedAccount,
