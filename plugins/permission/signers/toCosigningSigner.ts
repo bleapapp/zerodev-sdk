@@ -20,9 +20,9 @@ export function toCosigningSigner<
     TSource extends string = "custom",
     TAddress extends Address = Address
 >({
-      signer,
-      signerContractAddress = COSIGNING_SIGNER_CONTRACT
-  }: CosigningModularSignerParams<TSource, TAddress>): ModularSigner {
+    signer,
+    signerContractAddress = COSIGNING_SIGNER_CONTRACT
+}: CosigningModularSignerParams<TSource, TAddress>): ModularSigner {
     const viemSigner: LocalAccount = {
         ...signer,
         signTransaction: (_, __) => {
@@ -40,7 +40,7 @@ export function toCosigningSigner<
         async signTypedData<
             const TTypedData extends TypedData | Record<string, unknown>,
             TPrimaryType extends
-                    | keyof TTypedData
+                | keyof TTypedData
                 | "EIP712Domain" = keyof TTypedData
         >(typedData: TypedDataDefinition<TTypedData, TPrimaryType>) {
             return fixSignedData(
