@@ -20,3 +20,4 @@ esbuild-why-permissionless*
 .env.production.local
 .envrc
 .vscode
+.idea

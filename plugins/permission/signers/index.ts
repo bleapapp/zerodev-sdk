@@ -9,3 +9,4 @@ export {
 export { WebAuthnMode, toWebAuthnKey } from "./toWebAuthnKey.js"
 export { toSignerId } from "./utils/toSignerId.js"
 export { toEmptyECDSASigner } from "./toEmptyECDSASigner.js"
+export { toCosigningSigner } from "./toCosigningSigner.js"
