@@ -1,6 +1,8 @@
 {
     "workspaces": ["packages/*", "templates/*", "plugins/*"],
     "private": true,
+    "name": "@zerodev/sdk",
+    "version": "1.0.0",
     "author": "ZeroDev",
     "type": "module",
     "sideEffects": false,
