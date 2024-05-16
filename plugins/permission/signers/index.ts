@@ -10,3 +10,4 @@ export {
 export { WebAuthnMode, toWebAuthnKey } from "@zerodev/webauthn-key"
 export { toSignerId } from "./utils/toSignerId.js"
 export { toEmptyECDSASigner } from "./toEmptyECDSASigner.js"
+export { toCosigningSigner } from "./toCosigningSigner.js"

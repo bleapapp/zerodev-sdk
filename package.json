@@ -39,5 +39,9 @@
     },
     "simple-git-hooks": {
         "pre-commit": "bun run format && bun run lint:fix"
+    },
+    "dependencies": {
+        "permissionless": "^0.1.29",
+        "viem": "^2.10.8"
     }
 }
