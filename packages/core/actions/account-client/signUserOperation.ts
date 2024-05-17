@@ -14,7 +14,7 @@ import {
 } from "permissionless/utils"
 import type { Chain, Client, Transport } from "viem"
 import { getAction } from "viem/utils"
-import {
+import type {
     PrepareUserOperationRequestParameters,
     PrepareUserOperationRequestReturnType
 } from "permissionless/actions/smartAccount/prepareUserOperationRequest";
