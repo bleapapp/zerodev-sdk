@@ -108,6 +108,22 @@ export type KernelAccountClientActions<
         >[1]
     ) => Promise<PrepareUserOperationReturnType<entryPoint>>
     /**
+     * Prepare a user operation with the given transport, chain, and smart account.
+     *
+     * @param args - Parameters for the prepareUserOperation function
+     * @returns A promise that resolves to the result of the prepareUserOperation function
+     */
+    prepareUserOperation: <TTransport extends Transport>(
+        args: Parameters<
+            typeof prepareUserOperation<
+                entryPoint,
+                TTransport,
+                TChain,
+                TSmartAccount
+            >
+        >[1]
+    ) => Promise<PrepareUserOperationReturnType<entryPoint>>
+    /**
      * Returns the live gas prices that you can use to send a user operation.
      *
      * @returns maxFeePerGas & maxPriorityFeePerGas {@link GetUserOperationGasPriceReturnType}
