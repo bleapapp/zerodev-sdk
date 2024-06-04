@@ -7,11 +7,17 @@ import {
     type GetUserOperationGasPriceReturnType,
     getUserOperationGasPrice
 } from "../../actions/account-client/getUserOperationGasPrice.js"
-import type {
-    SignUserOperationParameters,
-    SignUserOperationReturnType
+import {
+
 } from "../../actions/index.js"
-import { signUserOperation } from "../../actions/index.js"
+import {
+    type PrepareUserOperationParameters,
+    type PrepareUserOperationReturnType,
+    prepareUserOperation,
+    type SignUserOperationParameters,
+    type SignUserOperationReturnType,
+    signUserOperation
+} from "../../actions/index.js"
 import {
     type EstimateGasInERC20Parameters,
     type EstimateGasInERC20ReturnType,
@@ -80,6 +86,22 @@ export type KernelAccountClientActions<
         >[1]
     ) => Promise<SignUserOperationReturnType<entryPoint>>
     /**
+     * Prepare a user operation with the given transport, chain, and smart account.
+     *
+     * @param args - Parameters for the prepareUserOperation function
+     * @returns A promise that resolves to the result of the prepareUserOperation function
+     */
+    prepareUserOperation: <TTransport extends Transport>(
+        args: Parameters<
+            typeof prepareUserOperation<
+                entryPoint,
+                TTransport,
+                TChain,
+                TSmartAccount
+            >
+        >[1]
+    ) => Promise<PrepareUserOperationReturnType<entryPoint>>
+    /**
      * Returns the live gas prices that you can use to send a user operation.
      *
      * @returns maxFeePerGas & maxPriorityFeePerGas {@link GetUserOperationGasPriceReturnType}
@@ -109,6 +131,14 @@ export function kernelAccountClientActions<entryPoint extends EntryPoint>({
                     ...args,
                     middleware
                 } as SignUserOperationParameters<entryPoint, TSmartAccount>
+            ),
+        prepareUserOperation: (args) =>
+            prepareUserOperation<entryPoint, TTransport, TChain, TSmartAccount>(
+                client,
+                {
+                    ...args,
+                    middleware
+                } as PrepareUserOperationParameters<entryPoint, TSmartAccount>
             ),
         getUserOperationGasPrice: async () => getUserOperationGasPrice(client)
     })
