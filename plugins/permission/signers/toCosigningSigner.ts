@@ -6,7 +6,6 @@ import {
 } from "permissionless/accounts"
 import type { Address, LocalAccount, TypedDataDefinition } from "viem"
 import { toAccount } from "viem/accounts"
-import { COSIGNING_SIGNER_CONTRACT } from "../constants.js"
 import type { ModularSigner, ModularSignerParams } from "../types.js"
 
 export type CosigningModularSignerParams<
@@ -21,7 +20,7 @@ export function toCosigningSigner<
     TAddress extends Address = Address
 >({
     signer,
-    signerContractAddress = COSIGNING_SIGNER_CONTRACT
+    signerContractAddress
 }: CosigningModularSignerParams<TSource, TAddress>): ModularSigner {
     const viemSigner: LocalAccount = {
         ...signer,
@@ -52,7 +51,7 @@ export function toCosigningSigner<
     })
     return {
         account,
-        signerContractAddress,
+        signerContractAddress: signerContractAddress!,
         getSignerData: () => {
             return viemSigner.address
         },
