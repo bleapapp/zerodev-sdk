@@ -51,6 +51,7 @@ export { KernelV3_1AccountAbi } from "./accounts/kernel/abi/kernel_v_3_1/KernelA
 export { KernelV3FactoryAbi } from "./accounts/kernel/abi/kernel_v_3_0_0/KernelFactoryAbi.js"
 export { KernelFactoryStakerAbi } from "./accounts/kernel/abi/kernel_v_3_0_0/KernelFactoryStakerAbi.js"
 export { TokenActionsAbi } from "./accounts/kernel/abi/TokenActionsAbi.js"
+export { getKernelV3Nonce } from "./accounts/index.js"
 export * as constants from "./constants.js"
 export * from "./utils.js"
 export { gasTokenAddresses, type TokenSymbolsMap } from "./gasTokenAddresses.js"
