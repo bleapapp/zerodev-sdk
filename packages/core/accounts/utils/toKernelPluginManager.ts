@@ -219,6 +219,7 @@ export async function toKernelPluginManager<
             validator: regular,
             validatorNonce
         })
+        console.log(`typedData ${JSON.stringify(typedData)})`)
         ownerSig = await sudo.signTypedData(typedData)
         pluginEnableSignature = ownerSig
 
