@@ -26,8 +26,7 @@ export function toEmptyCosigningSigner({
                 | keyof TTypedData
                 | "EIP712Domain" = keyof TTypedData
         >(_typedData: TypedDataDefinition<TTypedData, TPrimaryType>) {
-            //throw new Error("Method not supported")
-            return "0x"
+            throw new Error("Method not supported")
         }
     })
     return {
