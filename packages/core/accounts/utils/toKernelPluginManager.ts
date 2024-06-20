@@ -135,6 +135,7 @@ export async function toKernelPluginManager<
             if (await isPluginEnabled(accountAddress, action.selector)) {
                 return userOpSignature
             }
+            console.log(`Plugin not enabled, regular address: ${regular.address} - Action: ${JSON.stringify(action)}`)
             const enableSignature =
                 await getPluginEnableSignature(accountAddress)
             return getEncodedPluginsDataV2({
