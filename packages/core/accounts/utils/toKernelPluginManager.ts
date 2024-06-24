@@ -142,7 +142,6 @@ export async function toKernelPluginManager<
             if (await isPluginEnabled(accountAddress, action.selector)) {
                 return userOpSignature
             }
-            console.log(`Plugin not enabled, regular address: ${regular.address} - Action: ${JSON.stringify(action)}`)
             const enableSignature =
                 await getPluginEnableSignature(accountAddress)
             return getEncodedPluginsDataV2({
@@ -220,7 +219,6 @@ export async function toKernelPluginManager<
             validator: regular,
             validatorNonce
         })
-        console.log(`typedData ${JSON.stringify(typedData)})`)
         ownerSig = await sudo.signTypedData(typedData)
         pluginEnableSignature = ownerSig
 
