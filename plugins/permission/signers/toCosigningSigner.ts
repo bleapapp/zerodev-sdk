@@ -49,9 +49,11 @@ export function toCosigningSigner<
             )
         }
     })
+    if (!signerContractAddress)
+        throw new Error("signerContractAddress is required")
     return {
         account,
-        signerContractAddress: signerContractAddress!,
+        signerContractAddress: signerContractAddress as Address,
         getSignerData: () => {
             return viemSigner.address
         },

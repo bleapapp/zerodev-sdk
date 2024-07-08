@@ -1,7 +1,9 @@
 import {
+    type Erc20TransferPolicyParams,
     type RateLimitPolicyParams,
     type SignatureCallerPolicyParams,
     toCallPolicy,
+    toErc20TransferPolicy,
     toGasPolicy,
     toRateLimitPolicy,
     toSignatureCallerPolicy,
@@ -50,6 +52,10 @@ export const getPolicies = (
                 case "signature":
                     return toSignatureCallerPolicy(
                         permission.data as SignatureCallerPolicyParams
+                    )
+                case "erc20-transfer":
+                    return toErc20TransferPolicy(
+                        permission.data as Erc20TransferPolicyParams
                     )
                 default:
                     return undefined

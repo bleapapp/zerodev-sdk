@@ -4,6 +4,10 @@ export {
     type SignatureCallerPolicyParams
 } from "./toSignatureCallerPolicy.js"
 export {
+    toErc20TransferPolicy,
+    type Erc20TransferPolicyParams
+} from "./toErc20TransferPolicy.js"
+export {
     toRateLimitPolicy,
     type RateLimitPolicyParams
 } from "./toRateLimitPolicy.js"

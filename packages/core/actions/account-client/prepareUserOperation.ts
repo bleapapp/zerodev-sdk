@@ -4,20 +4,15 @@ import type {
     PrepareUserOperationRequestParameters,
     PrepareUserOperationRequestReturnType
 } from "permissionless/actions/smartAccount/prepareUserOperationRequest"
-import type {
-    EntryPoint,
-    Prettify,
-} from "permissionless/types"
-import {
-    AccountOrClientNotFoundError,
-} from "permissionless/utils"
+import type { EntryPoint, Prettify } from "permissionless/types"
+import { AccountOrClientNotFoundError } from "permissionless/utils"
 import type { Chain, Client, Transport } from "viem"
 import { getAction } from "viem/utils"
 
 export type PrepareUserOperationParameters<
     entryPoint extends EntryPoint,
     TAccount extends SmartAccount<entryPoint> | undefined =
-            | SmartAccount<entryPoint>
+        | SmartAccount<entryPoint>
         | undefined
 > = PrepareUserOperationRequestParameters<entryPoint, TAccount>
 
@@ -29,7 +24,7 @@ export async function prepareUserOperation<
     TTransport extends Transport = Transport,
     TChain extends Chain | undefined = Chain | undefined,
     TAccount extends SmartAccount<entryPoint> | undefined =
-            | SmartAccount<entryPoint>
+        | SmartAccount<entryPoint>
         | undefined
 >(
     client: Client<TTransport, TChain, TAccount>,
