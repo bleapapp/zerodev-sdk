@@ -1,6 +1,9 @@
 import {
+    type Erc20TransferPolicyParams,
+    type RateLimitPolicyParams,
     type SignatureCallerPolicyParams,
     toCallPolicy,
+    toErc20TransferPolicy,
     toGasPolicy,
     toRateLimitPolicy,
     toSignatureCallerPolicy,
@@ -43,6 +46,13 @@ export const getPermissionPoliciy = (permission: Permission): Policy[] => {
             policies.push(
                 toSignatureCallerPolicy(
                     permission.data as SignatureCallerPolicyParams
+                )
+            )
+            break
+        case "erc20-transfer":
+            policies.push(
+                toErc20TransferPolicy(
+                    permission.data as Erc20TransferPolicyParams
                 )
             )
             break

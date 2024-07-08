@@ -42,6 +42,7 @@ export const SIGNATURE_POLICY_CONTRACT =
 export const SUDO_POLICY_CONTRACT = "0x67b436caD8a6D025DF6C82C5BB43fbF11fC5B9B7"
 export const TIMESTAMP_POLICY_CONTRACT =
     "0xB9f8f524bE6EcD8C945b1b87f9ae5C192FdCE20F"
+export const ERC20_TRANSFER_POLICY_CONTRACT = "0x" // TODO: Need to be set when released in mainnets
 
 export enum PolicyFlags {
     FOR_ALL_VALIDATION = "0x0000",

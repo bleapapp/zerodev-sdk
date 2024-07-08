@@ -13,7 +13,7 @@ export {
 export {
     type PrepareUserOperationParameters,
     type PrepareUserOperationReturnType,
-    prepareUserOperation,
+    prepareUserOperation
 } from "./account-client/prepareUserOperation.js"
 
 export {

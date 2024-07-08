@@ -19,6 +19,7 @@ import { privateKeyToAccount } from "viem/accounts"
 import type { DecodeFunctionDataReturnType } from "viem/utils/abi/decodeFunctionData.js"
 import {
     toCallPolicy,
+    toErc20TransferPolicy,
     toGasPolicy,
     toRateLimitPolicy,
     toSignatureCallerPolicy,
@@ -109,6 +110,8 @@ export const createPolicyFromParams = async (policy: Policy) => {
             return await toSudoPolicy(policy.policyParams)
         case "timestamp":
             return await toTimestampPolicy(policy.policyParams)
+        case "erc20-transfer":
+            return await toErc20TransferPolicy(policy.policyParams)
         default:
             throw new Error("Unsupported policy type")
     }

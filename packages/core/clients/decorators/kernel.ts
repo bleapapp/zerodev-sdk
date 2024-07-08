@@ -22,7 +22,11 @@ import type {
     SignUserOperationReturnType,
     UninstallPluginParameters
 } from "../../actions/index.js"
-import { signUserOperation, prepareUserOperation, uninstallPlugin } from "../../actions/index.js"
+import {
+    prepareUserOperation,
+    signUserOperation,
+    uninstallPlugin
+} from "../../actions/index.js"
 
 import {
     type EstimateGasInERC20Parameters,

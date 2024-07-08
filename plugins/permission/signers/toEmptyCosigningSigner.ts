@@ -2,7 +2,7 @@ import { constants } from "@zerodev/sdk"
 import type { TypedData } from "abitype"
 import type { Address, TypedDataDefinition } from "viem"
 import { toAccount } from "viem/accounts"
-import type {ModularSigner, ModularSignerParams} from "../types.js"
+import type { ModularSigner, ModularSignerParams } from "../types.js"
 
 export type EmptyCosigningSignerParams = ModularSignerParams & {
     signerAddress: Address
@@ -29,9 +29,11 @@ export function toEmptyCosigningSigner({
             throw new Error("Method not supported")
         }
     })
+    if (!signerContractAddress)
+        throw new Error("signerContractAddress is required")
     return {
         account,
-        signerContractAddress: signerContractAddress!,
+        signerContractAddress: signerContractAddress as Address,
         getSignerData: () => {
             return signerAddress
         },

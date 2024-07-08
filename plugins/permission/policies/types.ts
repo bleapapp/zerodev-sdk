@@ -41,6 +41,17 @@ export type PermissionCore = {
     rules?: ParamRule[]
 }
 
+export type PeriodLimit = {
+    valueLimit: bigint
+    periodInSeconds: bigint
+}
+
+export type SpendLimitsRequest = {
+    tokenCategory: number
+    allowedDestinationAddresses: Address[]
+    limits: PeriodLimit[]
+}
+
 export type InferFunctionName<
     TAbi extends Abi | readonly unknown[] = Abi,
     TFunctionName extends string | undefined = string,

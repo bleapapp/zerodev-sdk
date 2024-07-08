@@ -9,6 +9,7 @@ import type { Abi, Address, Hex, LocalAccount } from "viem"
 import type { PolicyFlags } from "./constants.js"
 import type {
     CallPolicyParams,
+    Erc20TransferPolicyParams,
     GasPolicyParams,
     RateLimitPolicyParams,
     SignatureCallerPolicyParams,
@@ -51,6 +52,7 @@ export type Policy = {
         | (SignatureCallerPolicyParams & { type: "signature-caller" })
         | (SudoPolicyParams & { type: "sudo" })
         | (TimestampPolicyParams & { type: "timestamp" })
+        | (Erc20TransferPolicyParams & { type: "erc20-transfer" })
 }
 
 export type PermissionPluginParams<entryPoint extends EntryPoint> = {
