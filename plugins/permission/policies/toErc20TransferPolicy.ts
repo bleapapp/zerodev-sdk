@@ -56,6 +56,10 @@ export const encodeSpendLimitsRequestData = (
         }
     ]
 
-    const values = [ spendLimitsRequest.tokenCategory, spendLimitsRequest.allowedDestinationAddresses, spendLimitsRequest.limits ]
+    const values = [
+        spendLimitsRequest.tokenCategory,
+        spendLimitsRequest.allowedDestinationAddresses,
+        spendLimitsRequest.limits
+    ]
     return encodeAbiParameters(spendLimitsRequestParam, values)
 }
