@@ -34,7 +34,7 @@ export const encodeSpendLimitsRequestData = (
     const spendLimitsRequestParam = [
         {
             name: "tokenCategory",
-            type: "uint256"
+            type: "uint16"
         },
         {
             name: "allowedDestinationAddresses",
@@ -48,7 +48,7 @@ export const encodeSpendLimitsRequestData = (
                 },
                 {
                     name: "periodInSeconds",
-                    type: "uint256"
+                    type: "uint24"
                 }
             ],
             name: "limits",
